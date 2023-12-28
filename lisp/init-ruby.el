@@ -123,6 +123,13 @@
 
 ;; (add-to-list 'mmm-set-file-name-for-modes 'ruby-mode)
 
+(reformatter-define ruby-format
+  :program "rubyfmt"
+  :args '()
+  :lighter "rubyfmt")
+
+(with-eval-after-load 'ruby-mode
+  (add-hook 'ruby-mode-hook 'ruby-format-on-save-mode))
 
 
 (provide 'init-ruby)
